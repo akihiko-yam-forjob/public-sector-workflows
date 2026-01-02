@@ -7,6 +7,7 @@ This repository serves as a **portfolio archive** to demonstrate my technical ba
 > **⚠️ Context & Disclaimer:**
 > * **Timeframe:** The codes in this repository were originally created around **2022-2023**.
 > * **Purpose:** They are archived here to demonstrate my "Builder's Mindset"—the ability to prototype independent solutions for administrative challenges.
+> * **Self-Taught:** I acquired Python and Cloud Engineering skills entirely through self-study outside of my core consulting duties, driven by a passion to solve real-world problems with code.
 > * **Status:** As these are legacy scripts ("Works on my machine" era), dependencies may be outdated. They are presented primarily to showcase logic and architectural thinking rather than production-readiness.
 
 ---
