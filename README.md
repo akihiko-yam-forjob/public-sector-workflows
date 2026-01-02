@@ -39,7 +39,7 @@ This repository serves as a **portfolio archive** to demonstrate my technical ba
 運用を通じて、「全件通知ではノイズが多い」「チーム共有がしにくい」という課題が見えてきました。現在、最新のクラウド技術（AWS/Azure）を用いて再設計するなら、以下のアーキテクチャを採用します。
 
 1.  **Intelligent Filtering with GenAI:**
-    * 単なるキーワードマッチではなく、**Generative AI (e.g., Azure OpenAI Service / Amazon Bedrock)** を組み込み、記事内容を要約および「安保上の重要度」を判定させることで、ノイズを削減する。
+    * 単なるキーワードマッチではなく、**Generative AI (e.g., Azure OpenAI Service / Amazon Bedrock)** を組み込み、記事内容を要約、重要度を判定させることで、ノイズを削減する。
 2.  **Enterprise Collaboration:**
     * 個人のLINEではなく、**Enterprise Tools (e.g., Microsoft Teams / Slack)** へ通知先を変更し、組織全体での情報共有とリアクションを可能にする。
 3.  **Infrastructure as Code (IaC):**
