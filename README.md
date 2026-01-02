@@ -68,7 +68,8 @@ This repository serves as a **portfolio archive** to demonstrate my technical ba
 ### Architecture (Legacy)
 * **Language:** Python 3.11
 * **Libraries:** `Geopandas`, `Shapely`, `Matplotlib`
-* **Input:** 500m Mesh Shapefile (Open Data)
+* **Input:** 500m Mesh Future Population Estimates (Shapefile)
+    * Source: [National Land Numerical Information (MLIT)](https://nlftp.mlit.go.jp/ksj/old/datalist/old_KsjTmplt-m500h30.html)
 
 ### 💡 Lessons Learned & Modern Re-design
 ローカルPCでの処理では「全国規模のデータ処理に時間がかかる」「静的な画像でしか対話できない」という限界がありました。クラウドネイティブなデータ基盤として再構築するなら、以下のアプローチをとります。
