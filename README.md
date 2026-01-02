@@ -16,11 +16,13 @@ This repository serves as a **portfolio archive** to demonstrate my technical ba
 **File:** `gov_news_monitor.py`
 
 ### Overview
-各省庁（総務省、経産省など）の報道発表を24時間監視し、特定のキーワード（安保、通信インフラ等）を含む重要情報をリアルタイムで検知・LINE通知する **Serverless Intelligence System**。
+各省庁（総務省、経産省など）の報道発表を、習慣的な発表のタイミングを踏まえて定期的に監視し、情報をリアルタイムで検知・LINE通知する **Serverless Intelligence System**。
+複数の省庁ごとにサイトの特性に合わせて複数運用し、ここで公開するのはそのうち総務省用のもの。
 
 ### Why I built this
-コンサルタントとして多忙を極める中、「毎日決まった時間に各省庁のサイトを見に行く」というルーチンを維持することは困難であり、数日分の確認漏れが発生するリスクがありました。
+コンサルタントとして多忙を極める中、「毎日決まった時間に各省庁のサイトを見に行く」という個人的なルーチンを維持することは困難であり、数日分の確認漏れが発生するリスクがありました。
 そこで、**「人間が情報を取りに行く（Pull）」のではなく、「システムが情報を届ける（Push）」仕組み**に変えることで、情報収集という"習慣"そのものをコードにアウトソースしました。
+実際に、当日の朝に発表されたばかりの情報をクライアント訪問時にタイムリーに提供できたり、自分自身が政府の最新情報へキャッチアップできたりなど、大きく貢献しました。
 
 ### Core Value
 * **Eliminating Manual Dependency:** 人間の記憶や意志力に依存したチェック体制を廃止し、システムによる定期実行で信頼性を担保。
@@ -28,7 +30,7 @@ This repository serves as a **portfolio archive** to demonstrate my technical ba
 * **Consistent Monitoring:** 繁忙期や休暇中であっても、システムの監視が止まることはなく、情報の連続性を維持。
 
 ### Architecture (Legacy)
-* **Compute:** Google Cloud Functions (Python 3.x)
+* **Compute:** Google Cloud Functions (Python 3.11)
 * **Storage:** Google Cloud Storage (State management for diff detection)
 * **Notification:** LINE Notify API
 * **Logic:** Web Scraping & Anti-join (Diff detection)
@@ -53,17 +55,18 @@ This repository serves as a **portfolio archive** to demonstrate my technical ba
 どの地域が消滅可能性が高いか（Red Zone）をヒートマップとして即座に可視化します。
 
 ### Why I built this
-自治体やインフラ企業のコンサルティングにおいて、人口減少は避けて通れない課題ですが、単なる「数字の羅列（Excel表）」では危機感が直感的に伝わりません。
-また、従来のデスクトップGISソフトでの手作業による色塗りは、再現性が低く時間がかかります。
-そこで、**「データさえ入れ替えれば、即座に政策判断に必要な地図が出力される」パイプライン**を構築し、意思決定のスピードを上げるために開発しました。
+自治体やインフラ企業のコンサルティングにおいて、人口減少は避けて通れない課題ですが、課題設定やビジネスチャンスの分析において、単なる「数字の羅列（Excel表）」では扱いにくく、データの可視化は必須です。
+また、分析に役立ちそうなシェープファイルや夥しい行数となるメッシュ別の人口データは、Excel等で扱うには限界がありました。
+さらに、従来のデスクトップGISソフトでの手作業による色塗りは、再現性が低く時間がかかります。
+そこで、**「データさえ入れ替えれば、即座に政策判断に必要な地図が出力される」パイプライン**を構築、チーム内の議論や資料作成に活用し、意思決定のスピードを上げるために開発しました。
 
 ### Core Value
-* **Data-Driven Policy Making:** 「なんとなく人が減っている」という定性的な感覚を、「減少率80%以上のエリア」として定量的に定義・可視化。
+* **Data-Driven Policy Making:** 「なんとなく人が減っている」という定性的な感覚を、「減少率XX%以上のエリア」として定量的に定義・可視化。
 * **Reproducibility:** パラメータ（閾値）を変えるだけで、異なるシナリオ（楽観/悲観）の分析マップを瞬時に再生成可能。
-* **Effective Communication:** 専門知識がないステークホルダー（首長や住民）に対しても、一目で課題が伝わる視覚的根拠を提供。
+* **Effective Communication:** 専門知識がないステークホルダー（自治体職員など）に対しても、一目で課題が伝わる視覚的根拠を提供。
 
 ### Architecture (Legacy)
-* **Language:** Python 3.x
+* **Language:** Python 3.11
 * **Libraries:** `Geopandas`, `Shapely`, `Matplotlib`
 * **Input:** 500m Mesh Shapefile (Open Data)
 
